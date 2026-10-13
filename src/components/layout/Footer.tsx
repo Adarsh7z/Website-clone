@@ -36,15 +36,18 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
 
             <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-sm mb-6">
               Healthy Smile, Happy Life. High-technology, pain-free clinical dentistry
-              delivered with a warm human touch in our Manhattan pavilion.
+              delivered with a warm human touch in our Secunderabad pavilion (Fairmount Downtown).
             </p>
 
-            <button
-              onClick={onOpenBooking}
-              className="btn-cyan text-xs py-2.5 px-5"
+            <a
+              href={`tel:${clinicData.phoneRaw}`}
+              className="btn-cyan text-xs py-2.5 px-5 inline-flex items-center gap-2"
             >
-              <span>Schedule Next Visit</span>
-            </button>
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>Call Now: {clinicData.phone}</span>
+            </a>
           </div>
 
           {/* Clinical Departments */}
@@ -104,7 +107,7 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
               </li>
               <li>
                 <button onClick={() => onNavigate("location")} className="hover:text-[#14B8A6] transition-colors">
-                  Hours & Parking
+                  Hours & Location
                 </button>
               </li>
             </ul>
@@ -113,20 +116,22 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
           {/* Contact & Hours */}
           <div>
             <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
-              EMERGENCY CARE
+              CLINIC CONTACT
             </h4>
             <div className="space-y-3 text-xs text-slate-400">
               <p>
-                <span className="text-slate-200 font-medium block">Front Desk:</span>
-                {clinicData.phone}
+                <span className="text-slate-200 font-medium block">Office Number:</span>
+                <a href={`tel:${clinicData.phoneRaw}`} className="text-[#14B8A6] hover:underline font-bold text-sm">
+                  {clinicData.phone}
+                </a>
               </p>
               <p>
-                <span className="text-red-400 font-medium block">24/7 Triage:</span>
-                {clinicData.emergencyPhone}
+                <span className="text-slate-200 font-medium block">Consultation Hours:</span>
+                Monday – Saturday: 9:30 AM – 6:00 PM
               </p>
               <p>
-                <span className="text-slate-200 font-medium block">Pavilion:</span>
-                {clinicData.address}
+                <span className="text-slate-200 font-medium block">Location:</span>
+                Fairmount Downtown, X Road, Doolapally Rd, Bolarum, Secunderabad, Telangana 500100
               </p>
             </div>
           </div>

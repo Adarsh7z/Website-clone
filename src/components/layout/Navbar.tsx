@@ -93,25 +93,38 @@ export function Navbar({ onOpenBooking, activeSection, onNavigate }: NavbarProps
           })}
         </nav>
 
-        {/* Right Slot: High-contrast Primary Action Button */}
+        {/* Right Slot: High-contrast Primary Action "Call Now" Tab */}
         <div className="hidden sm:flex items-center gap-4">
-          <button
-            onClick={onOpenBooking}
-            className="btn-cyan-square"
-            aria-label="Book Appointment"
+          <a
+            href={`tel:${clinicData.phoneRaw}`}
+            className="btn-cyan-square flex items-center gap-2 group"
+            aria-label={`Call Now: ${clinicData.phone}`}
           >
-            <span>Book Appointment</span>
-          </button>
+            <svg
+              className="w-4 h-4 text-white group-hover:scale-110 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2.2"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call Now</span>
+          </a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
         <div className="md:hidden flex items-center gap-3">
-          <button
-            onClick={onOpenBooking}
-            className="btn-cyan-square text-xs py-2 px-3 sm:hidden"
+          <a
+            href={`tel:${clinicData.phoneRaw}`}
+            className="btn-cyan-square text-xs py-2 px-3 sm:hidden flex items-center gap-1.5"
+            aria-label={`Call ${clinicData.phone}`}
           >
-            <span>Book</span>
-          </button>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call Now</span>
+          </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -153,15 +166,15 @@ export function Navbar({ onOpenBooking, activeSection, onNavigate }: NavbarProps
               </button>
             ))}
             <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-              <button
-                onClick={() => {
-                  onOpenBooking();
-                  setMobileMenuOpen(false);
-                }}
-                className="btn-cyan w-full justify-center"
+              <a
+                href={`tel:${clinicData.phoneRaw}`}
+                className="btn-cyan w-full justify-center flex items-center gap-2"
               >
-                <span>Book Appointment</span>
-              </button>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Call Now: {clinicData.phone}</span>
+              </a>
             </div>
           </nav>
         </div>

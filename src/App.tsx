@@ -9,6 +9,7 @@ import { ClinicLocation } from "@/components/home/ClinicLocation";
 import { Footer } from "@/components/layout/Footer";
 import { BookingModal } from "@/components/ui/BookingModal";
 import { ServiceDetailModal } from "@/components/ui/ServiceDetailModal";
+import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
 import { ScrollTrigger } from "@/lib/gsap";
 import { ServiceItem } from "@/data/dentalData";
 
@@ -113,6 +114,9 @@ export function App() {
         onNavigate={handleNavigate}
         onOpenBooking={() => setIsBookingOpen(true)}
       />
+
+      {/* Floating Call Element at bottom right */}
+      <FloatingCallButton />
 
       {/* Modals */}
       <BookingModal

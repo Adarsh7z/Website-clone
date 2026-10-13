@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ServiceItem } from "@/data/dentalData";
+import { ServiceItem, clinicData } from "@/data/dentalData";
 
 interface ServiceDetailModalProps {
   service: ServiceItem | null;
@@ -79,16 +79,15 @@ export function ServiceDetailModal({ service, onClose, onBook }: ServiceDetailMo
         </div>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => {
-              onClose();
-              onBook();
-            }}
-            className="btn-cyan flex-1 justify-center text-sm"
+          <a
+            href={`tel:${clinicData.phoneRaw}`}
+            className="btn-cyan flex-1 justify-center text-sm flex items-center gap-2"
           >
-            <span>Book This Service</span>
-            <span>→</span>
-          </button>
+            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call to Enquire ({clinicData.phone})</span>
+          </a>
           <button
             onClick={onClose}
             className="btn-glass text-sm"

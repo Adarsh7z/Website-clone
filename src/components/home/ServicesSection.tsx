@@ -124,12 +124,13 @@ export function ServicesSection({ onSelectService, onOpenBooking }: ServicesSect
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </button>
 
-                <button
-                  onClick={onOpenBooking}
-                  className="text-xs font-semibold text-[#14B8A6] hover:text-[#2DD4BF] transition-colors"
+                <a
+                  href={`tel:${clinicData.phoneRaw}`}
+                  className="text-xs font-semibold text-[#14B8A6] hover:text-[#2DD4BF] transition-colors flex items-center gap-1"
                 >
-                  Book Session
-                </button>
+                  <span>Call to Enquire</span>
+                  <span>↗</span>
+                </a>
               </div>
             </div>
           ))}

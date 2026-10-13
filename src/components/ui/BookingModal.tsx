@@ -116,7 +116,11 @@ export function BookingModal({ isOpen, onClose, initialService }: BookingModalPr
                 Book Your Clinical Session
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Select your service and preferred opening. Zero waiting times guaranteed.
+                Select your service and preferred opening, or call our desk directly at{" "}
+                <a href={`tel:${clinicData.phoneRaw}`} className="text-[#14B8A6] underline font-bold">
+                  {clinicData.phone}
+                </a>{" "}
+                (9:30 AM – 6:00 PM).
               </p>
             </div>
 
