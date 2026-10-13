@@ -153,14 +153,12 @@ export function BookingModal({ isOpen, onClose, initialService }: BookingModalPr
                   onChange={(e) => setSelectedDoctor(e.target.value)}
                   className="w-full bg-[#142226] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#14B8A6] transition-colors"
                 >
-                  <option value="any" className="bg-[#0E1416] text-white">
-                    First Available Lead Specialist
+                  <option value={clinicData.doctor.name} className="bg-[#0E1416] text-white">
+                    {clinicData.doctor.name} (Lead Specialist)
                   </option>
-                  {clinicData.specialists.map((d, i) => (
-                    <option key={i} value={d.name} className="bg-[#0E1416] text-white">
-                      {d.name} — {d.specialty}
-                    </option>
-                  ))}
+                  <option value="Associate Specialist" className="bg-[#0E1416] text-white">
+                    First Available Restorative Clinician
+                  </option>
                 </select>
               </div>
 

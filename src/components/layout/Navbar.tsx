@@ -22,10 +22,10 @@ export function Navbar({ onOpenBooking, activeSection, onNavigate }: NavbarProps
 
   const navItems = [
     { id: "hero", label: "Home" },
-    { id: "about", label: "About Us" },
-    { id: "services", label: "Services" },
-    { id: "testimonials", label: "Testimonial" },
-    { id: "location", label: "Location" },
+    { id: "about", label: "About Doctor" },
+    { id: "services", label: "Specialisations" },
+    { id: "testimonials", label: "Testimonials" },
+    { id: "location", label: "Location & Hours" },
   ];
 
   return (
@@ -63,8 +63,8 @@ export function Navbar({ onOpenBooking, activeSection, onNavigate }: NavbarProps
             <span className="font-sans font-bold text-lg sm:text-xl text-white tracking-tight leading-none group-hover:text-[#14B8A6] transition-colors">
               {clinicData.name}
             </span>
-            <span className="font-sans text-[0.62rem] font-semibold text-brand-muted tracking-[0.25em] mt-1 uppercase leading-none">
-              {clinicData.tagline}
+            <span className="font-sans text-[0.58rem] sm:text-[0.62rem] font-semibold text-[#14B8A6] tracking-[0.18em] mt-1 uppercase leading-none">
+              DR. CHANDRA SEKAR ANAM, MDS
             </span>
           </div>
         </div>

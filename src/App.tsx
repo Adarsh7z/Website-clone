@@ -30,8 +30,8 @@ export function App() {
       const scrollPos = window.scrollY + 250;
       const sections = [
         { id: "hero", el: document.getElementById("hero") },
-        { id: "services", el: document.getElementById("services") },
         { id: "about", el: document.getElementById("about") },
+        { id: "services", el: document.getElementById("services") },
         { id: "testimonials", el: document.getElementById("testimonials") },
         { id: "location", el: document.getElementById("location") },
       ];
@@ -88,19 +88,19 @@ export function App() {
           onExploreServices={() => handleNavigate("services")}
         />
 
-        {/* Clinical Services */}
+        {/* Lead Medical Specialist: Dr. Chandra Sekar Anam, MDS */}
+        <SpecialistsSection
+          onOpenBooking={() => setIsBookingOpen(true)}
+        />
+
+        {/* Clinical Services & Specialisations */}
         <ServicesSection
           onSelectService={setSelectedService}
           onOpenBooking={() => setIsBookingOpen(true)}
         />
 
-        {/* Clinical Excellence & Hardware Innovations */}
+        {/* Clinical Excellence & Restorative Rigor */}
         <ClinicalExcellence />
-
-        {/* Lead Medical Specialists */}
-        <SpecialistsSection
-          onOpenBooking={() => setIsBookingOpen(true)}
-        />
 
         {/* Verified Patient Reviews */}
         <TestimonialsSection />

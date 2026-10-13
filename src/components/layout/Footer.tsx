@@ -28,15 +28,15 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
                 <span className="font-sans font-bold text-xl text-white tracking-tight leading-none block">
                   {clinicData.name}
                 </span>
-                <span className="font-sans text-[0.62rem] font-semibold text-brand-muted tracking-[0.25em] uppercase leading-none block mt-1">
-                  {clinicData.tagline}
+                <span className="font-sans text-[0.62rem] font-semibold text-[#14B8A6] tracking-[0.18em] uppercase leading-none block mt-1">
+                  DR. CHANDRA SEKAR ANAM, MDS
                 </span>
               </div>
             </div>
 
             <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-sm mb-6">
-              Healthy Smile, Happy Life. High-technology, pain-free clinical dentistry
-              delivered with a warm human touch in our Secunderabad pavilion (Fairmount Downtown).
+              Senior Professor, Prosthodontist & Implantologist. Decades of university teaching,
+              national leadership, and evidence-based restorative care focused on lifetime durability.
             </p>
 
             <a
@@ -53,32 +53,32 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
           {/* Clinical Departments */}
           <div>
             <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
-              DEPARTMENTS
+              SPECIALISATIONS
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-400 font-normal">
               <li>
                 <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
-                  Preventive Dentistry
+                  Dental Implants & Full Mouth
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
-                  Cosmetic & Whitening
+                  Prosthodontics, Crowns & Bridges
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
-                  Invisalign Diamond Aligners
+                  Bite Correction & Occlusal Therapy
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
-                  Digital 3D Dental Implants
+                  Precision Restorations Mastery
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
-                  Pediatric Care
+                  Clinical Diagnostics & Prophylaxis
                 </button>
               </li>
             </ul>
@@ -87,22 +87,27 @@ export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
           {/* Practice */}
           <div>
             <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
-              PRACTICE
+              ABOUT DOCTOR
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-400 font-normal">
               <li>
                 <button onClick={() => onNavigate("about")} className="hover:text-[#14B8A6] transition-colors">
-                  Clinical Innovations
+                  Academic & Clinical Profile
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("about")} className="hover:text-[#14B8A6] transition-colors">
-                  Specialist Doctors
+                  National Leadership (IPS & IDA)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate("about")} className="hover:text-[#14B8A6] transition-colors">
+                  AAID Fellow & Memberships
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate("testimonials")} className="hover:text-[#14B8A6] transition-colors">
-                  Patient Case Reviews
+                  Patient Reviews & Outcomes
                 </button>
               </li>
               <li>

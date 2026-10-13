@@ -39,29 +39,29 @@ export function ClinicalExcellence() {
 
   const innovations = [
     {
-      title: "Low-Dose 3D CBCT Imaging",
-      tag: "DIGITAL DIAGNOSTICS",
-      desc: "Emits 90% less radiation than legacy systems while capturing high-definition panoramic bone topologies.",
-    },
-    {
-      title: "Computer-Guided Implantology",
+      title: "Computer-Guided Implant Navigation",
       tag: "SURGICAL RIGOR",
-      desc: "Custom 3D titanium navigation guides ensure sub-millimeter precision and swift, swelling-free healing.",
+      desc: "Custom 3D titanium surgical stents ensure sub-millimeter implant placement with zero guesswork and accelerated healing.",
     },
     {
-      title: "Silent Electric Handpieces",
-      tag: "SENSORY COMFORT",
-      desc: "Replaces jarring high-pitched vibrations with silent, smooth ceramic micro-motors.",
+      title: "Digital Occlusal Articulation",
+      tag: "BITE CALIBRATION",
+      desc: "Scientific digital bite analysis eliminates premature contacts, protecting crowns and natural teeth against fractures.",
     },
     {
-      title: "Digital Optical Bite Scanners",
-      tag: "NO SILICONE TRAYS",
-      desc: "Captures 6,000 frames per second inside the oral cavity to create immediate virtual aligner mockups.",
+      title: "Monolithic Biocompatible Ceramics",
+      tag: "DURABILITY FOCUS",
+      desc: "High-translucency zirconium and lithium disilicate materials engineered to withstand decades of chewing forces.",
+    },
+    {
+      title: "3D Digital Optical Scanners",
+      tag: "PRECISION MARGINS",
+      desc: "Micron-accurate digital impressions replace messy silicone trays, capturing exact dental margins instantly.",
     },
   ];
 
   return (
-    <section ref={containerRef} id="about" className="section-pad bg-[#0E1416] border-t border-white/5 relative">
+    <section ref={containerRef} id="excellence" className="section-pad bg-[#0E1416] border-t border-white/5 relative">
       <div className="shell">
         
         {/* Stats Row */}
@@ -71,7 +71,7 @@ export function ClinicalExcellence() {
               key={idx}
               className="stat-box p-6 sm:p-8 rounded-2xl bg-[#142226]/60 border border-white/10 backdrop-blur-md flex flex-col justify-center items-center text-center"
             >
-              <div className="flex items-baseline text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">
+              <div className="flex items-baseline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2">
                 <span>{stat.value}</span>
                 <span className="text-[#14B8A6]">{stat.suffix}</span>
               </div>
@@ -85,15 +85,15 @@ export function ClinicalExcellence() {
         {/* Section Header */}
         <div className="max-w-2xl mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#142226] border border-[#14B8A6]/30 text-[#14B8A6] text-xs font-semibold tracking-wider uppercase mb-4">
-            <span>Clinical Innovation</span>
+            <span>Academic & Clinical Excellence</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
-            Where High Technology Meets <br />
-            <span className="text-[#14B8A6]">Gentle Human Empathy.</span>
+            Where Academic Precision Meets <br />
+            <span className="text-[#14B8A6]">Lifelong Dental Longevity.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            We invest continuously in top-tier medical hardware so your procedures
-            are quicker, biologically conservative, and entirely anxiety-free.
+            Led by a senior professor of prosthodontics, our clinic utilizes evidence-based
+            protocols and high-precision restorative workflows to ensure every restoration endures.
           </p>
         </div>
 

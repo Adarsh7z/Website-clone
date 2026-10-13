@@ -51,15 +51,15 @@ export function ServicesSection({ onSelectService, onOpenBooking }: ServicesSect
         {/* Section Header */}
         <div className="services-header max-w-3xl mb-14 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#142226] border border-[#14B8A6]/30 text-[#14B8A6] text-xs font-semibold tracking-wider uppercase mb-4">
-            <span>Specialized Clinical Departments</span>
+            <span>Core Clinical Specialisations</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
-            Comprehensive Dental Care, <br className="hidden sm:inline" />
-            <span className="text-[#14B8A6]">Tailored to Your Needs.</span>
+            Specialized Prosthodontic & <br className="hidden sm:inline" />
+            <span className="text-[#14B8A6]">Implantology Services.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            From precision preventative hygiene to computer-guided full smile reconstructions,
-            our specialists combine medical rigor with artistic aesthetic harmony.
+            From single-tooth implants and computer-guided full mouth rehabilitation to precision
+            crowns, bridges, and complex bite corrections — delivered with academic authority and lifetime durability.
           </p>
         </div>
 
