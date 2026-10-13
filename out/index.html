@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <title>SARTORIAL ATELIER — Bespoke Menswear, Office Casuals & Celebrations</title>
+    
+    <!-- Script to prevent flash of unstyled content per GSAP rule 6 -->
+    <script>document.documentElement.classList.add('js')</script>
+    
+    <!-- Google Fonts: Cormorant Garamond & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="./assets/index-eiGixoJd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cj4F0Dg0.css">
+  </head>
+  <body class="bg-paper text-ink selection:bg-ink selection:text-paper overflow-x-hidden antialiased">
+    <div id="root"></div>
+    <script>
+      // Fallback: If deployed on a static host that serves the repository root directory
+      // (causing /src/main.tsx to fail browser execution because it is raw TypeScript),
+      // seamlessly redirect to the compiled /out/ distribution.
+      (function() {
+        var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        if (!isLocal) {
+          setTimeout(function() {
+            var root = document.getElementById('root');
+            if (!root || !root.hasChildNodes()) {
+              var currentPath = window.location.pathname;
+              if (currentPath.indexOf('/out') === -1) {
+                var redirectPath = (currentPath.endsWith('/') ? currentPath : currentPath + '/') + 'out/';
+                window.location.replace(redirectPath + window.location.search + window.location.hash);
+              }
+            }
+          }, 150);
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -18,5 +18,25 @@
   <body class="bg-paper text-ink selection:bg-ink selection:text-paper overflow-x-hidden antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Fallback: If deployed on a static host that serves the repository root directory
+      // (causing /src/main.tsx to fail browser execution because it is raw TypeScript),
+      // seamlessly redirect to the compiled /out/ distribution.
+      (function() {
+        var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        if (!isLocal) {
+          setTimeout(function() {
+            var root = document.getElementById('root');
+            if (!root || !root.hasChildNodes()) {
+              var currentPath = window.location.pathname;
+              if (currentPath.indexOf('/out') === -1) {
+                var redirectPath = (currentPath.endsWith('/') ? currentPath : currentPath + '/') + 'out/';
+                window.location.replace(redirectPath + window.location.search + window.location.hash);
+              }
+            }
+          }, 150);
+        }
+      })();
+    </script>
   </body>
 </html>
