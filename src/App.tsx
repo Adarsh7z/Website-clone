@@ -1,31 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
-import { Header } from "@/components/layout/Header";
+import { Navbar } from "@/components/layout/Navbar";
+import { SplitHero } from "@/components/home/SplitHero";
+import { ServicesSection } from "@/components/home/ServicesSection";
+import { ClinicalExcellence } from "@/components/home/ClinicalExcellence";
+import { SpecialistsSection } from "@/components/home/SpecialistsSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { ClinicLocation } from "@/components/home/ClinicLocation";
 import { Footer } from "@/components/layout/Footer";
-import { HeroCarousel } from "@/components/home/HeroCarousel";
-import { MarqueeBand } from "@/components/home/MarqueeBand";
-import { CategoryTiles } from "@/components/home/CategoryTiles";
-import { FeaturedRow } from "@/components/home/FeaturedRow";
-import { Craftsmanship } from "@/components/home/Craftsmanship";
-import { HowOrdering } from "@/components/home/HowOrdering";
-import { StoryBand } from "@/components/home/StoryBand";
-import { Testimonials } from "@/components/home/Testimonials";
-import { PricingSection } from "@/components/home/PricingSection";
-import { VisitStore } from "@/components/home/VisitStore";
-import { SearchModal } from "@/components/ui/SearchModal";
-import { QuickViewModal } from "@/components/ui/QuickViewModal";
-import { FloatingMenu } from "@/components/ui/FloatingMenu";
-import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
+import { BookingModal } from "@/components/ui/BookingModal";
+import { ServiceDetailModal } from "@/components/ui/ServiceDetailModal";
 import { ScrollTrigger } from "@/lib/gsap";
+import { ServiceItem } from "@/data/dentalData";
 
 export function App() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
-  const [activeSection, setActiveSection] = useState<string>("home");
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
-  // Refresh ScrollTrigger when fonts and resources finish loading per GSAP rules
   useEffect(() => {
+    // Refresh ScrollTrigger after fonts load per GSAP rule 39
     if (document.fonts) {
       document.fonts.ready.then(() => {
         ScrollTrigger.refresh();
@@ -33,14 +26,13 @@ export function App() {
     }
 
     const onScroll = () => {
-      const scrollPos = window.scrollY + 200;
+      const scrollPos = window.scrollY + 250;
       const sections = [
-        { id: "home", el: document.getElementById("home") },
-        { id: "collections", el: document.getElementById("collections") },
-        { id: "featured-rail", el: document.getElementById("featured-rail") },
-        { id: "our-story", el: document.getElementById("our-story") },
-        { id: "pricing", el: document.getElementById("pricing") },
-        { id: "visit-store", el: document.getElementById("visit-store") },
+        { id: "hero", el: document.getElementById("hero") },
+        { id: "services", el: document.getElementById("services") },
+        { id: "about", el: document.getElementById("about") },
+        { id: "testimonials", el: document.getElementById("testimonials") },
+        { id: "location", el: document.getElementById("location") },
       ];
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -58,15 +50,12 @@ export function App() {
 
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
-    if (sectionId === "home") {
+    if (sectionId === "hero") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
-    const element =
-      document.getElementById(sectionId) ||
-      document.getElementById("collections");
-
+    const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -81,97 +70,64 @@ export function App() {
     }
   };
 
-  const handleExploreCategory = (_categorySlug: string) => {
-    const el = document.getElementById("featured-rail");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-paper text-ink relative">
-      {/* Fixed top Header & Announcement bar */}
-      <div className="fixed top-0 left-0 right-0 z-40">
-        <AnnouncementBar />
-        <Header
-          onOpenSearch={() => setIsSearchOpen(true)}
-          onOpenMenu={() => setIsMenuOpen(true)}
-          activeSection={activeSection}
-          onNavigate={handleNavigate}
-        />
-      </div>
+    <div className="min-h-screen flex flex-col bg-[#0E1416] text-[#F8FAFC] selection:bg-[#14B8A6] selection:text-[#0E1416]">
+      {/* Sticky Global Navigation Header */}
+      <Navbar
+        onOpenBooking={() => setIsBookingOpen(true)}
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+      />
 
-      {/* Main Content Sections */}
+      {/* Main Healthcare Content Engine */}
       <main className="flex-1">
-        <div id="home">
-          <HeroCarousel
-            onSelectProduct={setSelectedProduct}
-            onExploreCategory={handleExploreCategory}
-          />
-        </div>
-
-        <MarqueeBand />
-
-        <CategoryTiles
-          onSelectCategory={(slug) => {
-            const el = document.getElementById("featured-rail");
-            el?.scrollIntoView({ behavior: "smooth" });
-          }}
+        {/* The Split Hero Engine */}
+        <SplitHero
+          onOpenBooking={() => setIsBookingOpen(true)}
+          onExploreServices={() => handleNavigate("services")}
         />
 
-        <FeaturedRow
-          onSelectProduct={setSelectedProduct}
-          onExploreAll={() => {
-            const el = document.getElementById("featured-rail");
-            el?.scrollIntoView({ behavior: "smooth" });
-          }}
+        {/* Clinical Services */}
+        <ServicesSection
+          onSelectService={setSelectedService}
+          onOpenBooking={() => setIsBookingOpen(true)}
         />
 
-        <Craftsmanship />
+        {/* Clinical Excellence & Hardware Innovations */}
+        <ClinicalExcellence />
 
-        <HowOrdering />
-
-        <StoryBand
-          onReadStory={() => {
-            const el = document.getElementById("our-story");
-            el?.scrollIntoView({ behavior: "smooth" });
-          }}
+        {/* Lead Medical Specialists */}
+        <SpecialistsSection
+          onOpenBooking={() => setIsBookingOpen(true)}
         />
 
-        <Testimonials />
+        {/* Verified Patient Reviews */}
+        <TestimonialsSection />
 
-        <PricingSection
-          onSelectTier={(_tierId) => {
-            const el = document.getElementById("visit-store");
-            el?.scrollIntoView({ behavior: "smooth" });
-          }}
-        />
-
-        <VisitStore />
+        {/* Clinic Location & Hours */}
+        <ClinicLocation />
       </main>
 
-      {/* Comprehensive Luxury Footer */}
-      <Footer onNavigate={handleNavigate} />
-
-      {/* Floating Concierge Action */}
-      <FloatingWhatsApp />
-
-      {/* Modals & Drawers */}
-      <SearchModal
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        onSelectProduct={setSelectedProduct}
-      />
-
-      <QuickViewModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-      />
-
-      <FloatingMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
+      {/* Comprehensive Healthcare Footer */}
+      <Footer
         onNavigate={handleNavigate}
+        onOpenBooking={() => setIsBookingOpen(true)}
+      />
+
+      {/* Modals */}
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        initialService={selectedService}
+      />
+
+      <ServiceDetailModal
+        service={selectedService}
+        onClose={() => setSelectedService(null)}
+        onBook={() => {
+          setSelectedService(null);
+          setIsBookingOpen(true);
+        }}
       />
     </div>
   );

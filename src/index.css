@@ -2,42 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------------------------------------------------
-   CUSTOM PROPERTIES & METALLIC SHINE
-------------------------------------------------------------------- */
-@property --sheen-x {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
-
 @layer base {
   html {
-    -webkit-text-size-adjust: 100%;
-    overflow-x: clip;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    background-color: #0E1416;
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   }
 
   body {
-    background-color: #ffffff;
-    color: #0a0a0a;
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    background-color: #0E1416;
+    color: #F8FAFC;
     overflow-x: clip;
   }
 
-  /* No-flash of unstyled content for GSAP reveals */
+  /* No-flash of unstyled content for GSAP reveals per Rule 6 */
   .js [data-reveal] {
     opacity: 0;
   }
 }
 
 @layer components {
-  /* Layout shell */
+  /* Layout container */
   .shell {
     width: 100%;
     margin-inline: auto;
-    max-width: 84rem;
-    padding-inline: 1.25rem;
+    max-width: 88rem;
+    padding-inline: 1.5rem;
   }
 
   @media (min-width: 768px) {
@@ -52,204 +44,111 @@
     }
   }
 
-  .section-y {
+  .section-pad {
     padding-block: 5.5rem;
   }
 
   @media (min-width: 768px) {
-    .section-y {
+    .section-pad {
       padding-block: 7.5rem;
     }
   }
 
-  /* Typography tokens */
-  .t-display {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 300;
-    line-height: 1.02;
-    letter-spacing: -0.015em;
-    font-size: clamp(2.5rem, 7.5vw, 6.5rem);
-  }
-
-  .t-head {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.005em;
-    font-size: clamp(1.85rem, 3.8vw, 3.25rem);
-  }
-
-  .t-body {
-    font-size: 0.9375rem;
-    line-height: 1.75;
-    letter-spacing: 0.01em;
-  }
-
-  .label {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    line-height: 1.4;
-  }
-
-  .t-quote {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.25;
-    font-size: clamp(1.4rem, 3vw, 2.5rem);
-  }
-
-  /* METALLIC BRUSHED SILVER TYPOGRAPHY */
-  .type-silver {
-    text-shadow:
-      1px 0 0 rgba(10, 10, 10, 0.45),
-      -1px 0 0 rgba(10, 10, 10, 0.45),
-      0 1px 0 rgba(10, 10, 10, 0.45),
-      0 -1px 0 rgba(10, 10, 10, 0.45),
-      0 2px 10px rgba(10, 10, 10, 0.25);
-    background-image:
-      linear-gradient(
-        100deg,
-        transparent 40%,
-        rgba(255, 255, 255, 0.9) 50%,
-        transparent 60%
-      ),
-      linear-gradient(
-        100deg,
-        #5f6165 0%,
-        #7e8286 20%,
-        #9da1a5 42%,
-        #b4b8bc 58%,
-        #9da1a5 74%,
-        #6e7074 100%
-      );
-    background-size: 260% 100%, 100% 100%;
-    background-position: var(--sheen-x, 100%) 0, 0 0;
-    background-repeat: repeat, no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .type-silver-dark {
-    background-image:
-      linear-gradient(
-        100deg,
-        transparent 40%,
-        rgba(255, 255, 255, 0.95) 50%,
-        transparent 60%
-      ),
-      linear-gradient(
-        100deg,
-        #9aa3ae 0%,
-        #ccd3db 24%,
-        #e6ecf2 44%,
-        #f4f8fb 54%,
-        #dde5ec 70%,
-        #a4adb8 100%
-      );
-    background-size: 260% 100%, 100% 100%;
-    background-position: var(--sheen-x, 100%) 0, 0 0;
-    background-repeat: repeat, no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .silver-rule {
-    height: 1px;
-    border: 0;
-    background-image: linear-gradient(
-      90deg,
-      transparent,
-      #6e7074 18%,
-      #d5d7d9 50%,
-      #6e7074 82%,
-      transparent
-    );
-  }
-
-  .silver-hairline {
-    border: 0;
-    height: 1px;
-    background-color: rgba(110, 112, 116, 0.28);
-  }
-
-  .silver-underline {
-    background-image: linear-gradient(
-      90deg,
-      #6e7074,
-      #e8e8e8 50%,
-      #6e7074
-    );
-  }
-
-  /* BUTTONS */
-  .btn {
+  /* Primary Button Styling */
+  .btn-cyan {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 0.95rem 1.85rem;
+    font-size: 0.925rem;
+    padding: 0.85rem 1.85rem;
     border-radius: 9999px;
-    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    background-color: #14B8A6;
+    color: #FFFFFF;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 20px -3px rgba(20, 184, 166, 0.45);
+    cursor: pointer;
     white-space: nowrap;
+  }
+
+  .btn-cyan:hover {
+    background-color: #0D9488;
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px 0px rgba(20, 184, 166, 0.65);
+  }
+
+  .btn-cyan-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    padding: 0.65rem 1.35rem;
+    border-radius: 0.375rem;
+    background-color: #14B8A6;
+    color: #FFFFFF;
+    transition: all 0.25s ease-out;
+    box-shadow: 0 0 16px -2px rgba(20, 184, 166, 0.4);
     cursor: pointer;
   }
 
-  .btn-paper {
-    background-color: #ffffff;
-    color: #0a0a0a;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  .btn-cyan-square:hover {
+    background-color: #0D9488;
+    box-shadow: 0 0 24px -1px rgba(20, 184, 166, 0.6);
   }
 
-  .btn-paper:hover {
-    background-color: #f5f5f3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #F8FAFC;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
 
-  .btn-ink {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  }
-
-  .btn-ink:hover {
-    background-color: #1a1a1a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
-  }
-
-  .btn-ghost {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(8px);
-  }
-
-  .btn-ghost:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.7);
+  .btn-glass:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(20, 184, 166, 0.5);
     transform: translateY(-2px);
   }
 
-  .scrim-blur {
+  /* Halo Lighting Effects */
+  .halo-ring {
     position: absolute;
-    inset: 12% auto auto 50%;
-    transform: translateX(-50%);
-    width: min(90vw, 760px);
-    height: 380px;
-    background: radial-gradient(circle, rgba(10, 10, 10, 0.45) 0%, transparent 70%);
-    filter: blur(48px);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(254, 243, 199, 0.14) 0%, rgba(20, 184, 166, 0.12) 30%, transparent 70%);
+    filter: blur(45px);
     pointer-events: none;
+  }
+
+  .cyan-ambient {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.18) 0%, transparent 65%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  /* Overlapping Cut Gradient */
+  .overlapping-cut-left {
+    background: linear-gradient(to right, #0E1416 0%, rgba(14, 20, 22, 0.85) 8%, rgba(14, 20, 22, 0) 30%);
+  }
+
+  .overlapping-cut-bottom {
+    background: linear-gradient(to top, #0E1416 0%, rgba(14, 20, 22, 0.85) 15%, rgba(14, 20, 22, 0) 40%);
   }
 }

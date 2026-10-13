@@ -1,180 +1,149 @@
-import React, { useState } from "react";
-import { store } from "@/data/store.config";
-import { ArrowUpRightIcon, WhatsAppIcon } from "@/components/ui/Icons";
+import React from "react";
+import { clinicData } from "@/data/dentalData";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
+  onOpenBooking: () => void;
 }
 
-export function Footer({ onNavigate }: FooterProps) {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-      setTimeout(() => setSubscribed(false), 4000);
-    }
-  };
-
+export function Footer({ onNavigate, onOpenBooking }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white pt-20 pb-12 border-t border-white/10 select-none">
+    <footer className="w-full bg-[#080D0E] text-white pt-20 pb-12 border-t border-white/10 select-none">
       <div className="shell">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-16 border-b border-white/10">
-          {/* Brand Manifesto (2 cols) */}
+          
+          {/* Brand Col (2 cols) */}
           <div className="lg:col-span-2 pr-0 lg:pr-8">
-            <div className="mb-4">
-              <span className="font-display text-3xl font-light text-bone block">
-                {store.name}
-              </span>
-              <span className="label text-[0.65rem] tracking-[0.3em] text-silver-400 block mt-1">
-                {store.tagline} • BESPOKE MENSWEAR
-              </span>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-[#142226] border border-[#14B8A6]/40 flex items-center justify-center text-[#14B8A6]">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M12 2C8 2 6 5 6 8c0 4 2 9 3 13 0 .5.5 1 1 1h.5c.5 0 1-.5 1.5-3 .5-2 1-3 2-3s1.5 1 2 3c.5 2.5 1 3 1.5 3h.5c.5 0 1-.5 1-1 1-4 3-9 3-13 0-3-2-6-6-6Z" />
+                </svg>
+              </div>
+              <div>
+                <span className="font-sans font-bold text-xl text-white tracking-tight leading-none block">
+                  {clinicData.name}
+                </span>
+                <span className="font-sans text-[0.62rem] font-semibold text-brand-muted tracking-[0.25em] uppercase leading-none block mt-1">
+                  {clinicData.tagline}
+                </span>
+              </div>
             </div>
 
-            <p className="t-body text-silver-300 text-sm font-light max-w-sm mb-6 leading-relaxed">
-              Honest fabrics and true-to-measure tailoring. Sold from our shop in {store.city},
-              and delivered nationwide via personal WhatsApp consultation.
+            <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-sm mb-6">
+              Healthy Smile, Happy Life. High-technology, pain-free clinical dentistry
+              delivered with a warm human touch in our Manhattan pavilion.
             </p>
 
-            {/* Direct WhatsApp link */}
-            <a
-              href={`https://wa.me/${store.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-xs text-bone hover:text-white bg-white/10 hover:bg-white/15 px-4 py-2.5 rounded-full transition-colors border border-white/15"
+            <button
+              onClick={onOpenBooking}
+              className="btn-cyan text-xs py-2.5 px-5"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-              <span>Message Master Tailor</span>
-            </a>
+              <span>Schedule Next Visit</span>
+            </button>
           </div>
 
-          {/* Column: Collections */}
+          {/* Clinical Departments */}
           <div>
-            <p className="label text-[0.68rem] tracking-[0.2em] text-silver-400 mb-5">
-              COLLECTIONS
-            </p>
-            <ul className="space-y-3 text-sm font-light text-silver-300">
+            <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
+              DEPARTMENTS
+            </h4>
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-400 font-normal">
               <li>
-                <button
-                  onClick={() => onNavigate("office-casuals")}
-                  className="hover:text-white transition-colors"
-                >
-                  Office Casuals
+                <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
+                  Preventive Dentistry
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("blazers")}
-                  className="hover:text-white transition-colors"
-                >
-                  Blazers & Suiting
+                <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
+                  Cosmetic & Whitening
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("kurta-pajama")}
-                  className="hover:text-white transition-colors"
-                >
-                  Kurta Pajama Sets
+                <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
+                  Invisalign Diamond Aligners
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("featured-rail")}
-                  className="hover:text-white transition-colors"
-                >
-                  Picked For You Rail
+                <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
+                  Digital 3D Dental Implants
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate("services")} className="hover:text-[#14B8A6] transition-colors">
+                  Pediatric Care
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Column: Atelier & Services */}
+          {/* Practice */}
           <div>
-            <p className="label text-[0.68rem] tracking-[0.2em] text-silver-400 mb-5">
-              ATELIER
-            </p>
-            <ul className="space-y-3 text-sm font-light text-silver-300">
+            <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
+              PRACTICE
+            </h4>
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-400 font-normal">
               <li>
-                <button
-                  onClick={() => onNavigate("our-story")}
-                  className="hover:text-white transition-colors"
-                >
-                  Our Story & Heritage
+                <button onClick={() => onNavigate("about")} className="hover:text-[#14B8A6] transition-colors">
+                  Clinical Innovations
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("pricing")}
-                  className="hover:text-white transition-colors"
-                >
-                  Bespoke Pricing Tiers
+                <button onClick={() => onNavigate("about")} className="hover:text-[#14B8A6] transition-colors">
+                  Specialist Doctors
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("testimonials")}
-                  className="hover:text-white transition-colors"
-                >
-                  Patron Reviews
+                <button onClick={() => onNavigate("testimonials")} className="hover:text-[#14B8A6] transition-colors">
+                  Patient Case Reviews
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("visit-store")}
-                  className="hover:text-white transition-colors"
-                >
-                  Visit The Store
+                <button onClick={() => onNavigate("location")} className="hover:text-[#14B8A6] transition-colors">
+                  Hours & Parking
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Column: Trunk Show Signup */}
+          {/* Contact & Hours */}
           <div>
-            <p className="label text-[0.68rem] tracking-[0.2em] text-silver-400 mb-5">
-              PRIVATE TRUNK SHOWS
-            </p>
-            <p className="text-xs text-silver-400 font-light mb-4">
-              Receive private notices when new seasonal bolts of linen and wool arrive.
-            </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                className="w-full bg-white/5 border border-white/20 rounded-full px-4 py-2 text-xs text-white placeholder-silver-500 focus:outline-none focus:border-white transition-colors"
-              />
-              <button
-                type="submit"
-                className="btn btn-paper text-[0.65rem] py-2 px-4 w-full"
-              >
-                {subscribed ? "Invited ✓" : "Join Invitation List"}
-              </button>
-            </form>
+            <h4 className="text-xs font-bold tracking-widest text-slate-300 uppercase mb-5">
+              EMERGENCY CARE
+            </h4>
+            <div className="space-y-3 text-xs text-slate-400">
+              <p>
+                <span className="text-slate-200 font-medium block">Front Desk:</span>
+                {clinicData.phone}
+              </p>
+              <p>
+                <span className="text-red-400 font-medium block">24/7 Triage:</span>
+                {clinicData.emergencyPhone}
+              </p>
+              <p>
+                <span className="text-slate-200 font-medium block">Pavilion:</span>
+                {clinicData.address}
+              </p>
+            </div>
           </div>
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-silver-500 font-light">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-normal">
           <p>
-            © {store.copyrightYear} {store.name} {store.tagline}. All rights reserved.
+            © 2026 {clinicData.fullBrand}. All rights reserved. HIPAA Compliant & ADA Accredited.
           </p>
 
           <div className="flex items-center gap-6">
-            <span className="text-silver-400">{store.placeLine}</span>
+            <span className="text-slate-400">Painless Dentistry Protocol</span>
             <button
               onClick={scrollToTop}
-              className="label text-[0.65rem] tracking-wider text-silver-300 hover:text-white transition-colors flex items-center gap-1.5"
+              className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5"
             >
               <span>Back to top</span>
               <span>↑</span>
